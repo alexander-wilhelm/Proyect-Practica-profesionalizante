@@ -27,6 +27,7 @@ public class Usuarios {
     private Roles rol;
 
 
+
     public Integer getId() {
         return id;
     }
