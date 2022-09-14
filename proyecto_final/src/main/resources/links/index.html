@@ -29,10 +29,10 @@
 
                 </div>
                 <div class="col-sm-1">                    
-                    <a class="btn btn-info" th:href="${'/proyect_final/links/refresh/'}">Refrescar</a>
+                    <a class="btn btn-info" th:href="${'/proyectfinal/links/refresh/'}">Refrescar</a>
                 </div>
                 <div class="col-sm-1">
-                    <a class="btn btn-default" th:href="${'/proyect_final/links/create/0'}">Nuevo</a>
+                    <a class="btn btn-default" th:href="${'/proyectfinal/links/create/0'}">Nuevo</a>
                 </div>
                 <div class="col-sm-11">
                     <h5 style="color:red;" th:text="${message}"></h5>
@@ -56,7 +56,7 @@
                         <td th:text="${entity.id}"></td>
                         <td width="70%" th:text="${entity.descrip}"></td>
                         <td th:text="${entity.links}"></td>
-                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyect_final/links/edit/' + entity.id}">Editar</a></td>
+                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/links/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
                 </table>                
