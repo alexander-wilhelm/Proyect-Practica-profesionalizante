@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.proyect_final.entities;
+package ar.com.proyectfinal.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

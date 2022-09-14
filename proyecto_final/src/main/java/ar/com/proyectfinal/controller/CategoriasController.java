@@ -1,8 +1,8 @@
-package ar.com.proyect_final.controller;
+package ar.com.proyectfinal.controller;
 
-import ar.com.proyect_final.entities.Categorias;
-import ar.com.proyect_final.services.ICategoriasService;
-import ar.com.proyect_final.utiles.PageWrapper;
+import ar.com.proyectfinal.entities.Categorias;
+import ar.com.proyectfinal.services.ICategoriasService;
+import ar.com.proyectfinal.utiles.PageWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

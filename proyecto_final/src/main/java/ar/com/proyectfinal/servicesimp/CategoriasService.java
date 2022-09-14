@@ -1,8 +1,8 @@
-package ar.com.proyect_final.servicesimp;
+package ar.com.proyectfinal.servicesimp;
 
-import ar.com.proyect_final.dao.ICategoriasDao;
-import ar.com.proyect_final.entities.Categorias;
-import ar.com.proyect_final.services.ICategoriasService;
+import ar.com.proyectfinal.dao.ICategoriasDao;
+import ar.com.proyectfinal.entities.Categorias;
+import ar.com.proyectfinal.services.ICategoriasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

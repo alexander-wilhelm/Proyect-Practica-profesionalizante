@@ -1,6 +1,6 @@
-package ar.com.proyect_final.dao;
+package ar.com.proyectfinal.dao;
 
-import ar.com.proyect_final.entities.Categorias;
+import ar.com.proyectfinal.entities.Categorias;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
