@@ -10,14 +10,14 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name="Links")
+@Table(name="links")
 public class Links implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descrip;
-    private int link;
+    private String link;
 
 
     public Integer getId() {
@@ -36,11 +36,11 @@ public class Links implements Serializable {
         this.descrip = descrip;
     }
 
-    public int getLink() {
+    public String getLink() {
         return link;
     }
 
-    public void setLink(int link) {
+    public void setLink(String link) {
         this.link = link;
     }
 }

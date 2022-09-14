@@ -78,7 +78,7 @@ public class CategoriasController {
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage().toString());
             Page<Categorias> centroPage = entityService.findAll(pageable);
-            PageWrapper<Categorias> page = new PageWrapper<Categorias>(centroPage, "/Categorias");
+            PageWrapper<Categorias> page = new PageWrapper<Categorias>(centroPage, "/categorias");
             model.addAttribute("entities", page.getContent());
             model.addAttribute("page", page);
             model.addAttribute("entity", new Categorias());
