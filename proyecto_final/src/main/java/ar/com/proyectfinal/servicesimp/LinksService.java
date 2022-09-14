@@ -1,8 +1,8 @@
-package ar.com.proyect_final.servicesimp;
+package ar.com.proyectfinal.servicesimp;
 
-import ar.com.proyect_final.dao.ILinksDao;
-import ar.com.proyect_final.entities.Links;
-import ar.com.proyect_final.services.ILinksService;
+import ar.com.proyectfinal.dao.ILinksDao;
+import ar.com.proyectfinal.entities.Links;
+import ar.com.proyectfinal.services.ILinksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

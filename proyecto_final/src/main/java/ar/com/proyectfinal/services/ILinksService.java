@@ -1,6 +1,6 @@
-package ar.com.proyect_final.services;
+package ar.com.proyectfinal.services;
 
-import ar.com.proyect_final.entities.Links;
+import ar.com.proyectfinal.entities.Links;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
