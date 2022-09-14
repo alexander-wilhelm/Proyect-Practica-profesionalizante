@@ -17,7 +17,7 @@ public class Categorias implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descrip;
-    private String prioridad;
+    private Integer prioridad;
     private boolean baja;
 
     public Integer getId() {
@@ -36,11 +36,11 @@ public class Categorias implements Serializable {
         this.descrip = descrip;
     }
 
-    public String getPrioridad() {
+    public Integer getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(String prioridad) {
+    public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
     }
 
