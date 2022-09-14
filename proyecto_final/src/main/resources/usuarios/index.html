@@ -29,10 +29,10 @@
 
                 </div>
                 <div class="col-sm-1">                    
-                    <a class="btn btn-info" th:href="${'/proyect_final/usuarios/refresh/'}">Refrescar</a>
+                    <a class="btn btn-info" th:href="${'/proyectfinal/usuarios/refresh/'}">Refrescar</a>
                 </div>
                 <div class="col-sm-1">                    
-                    <a class="btn btn-default" th:href="${'/proyect_final/usuarios/create/0'}">Nuevo</a>                    
+                    <a class="btn btn-default" th:href="${'/proyectfinal/usuarios/create/0'}">Nuevo</a>
                 </div>
                 <div class="col-sm-11">
                     <h5 style="color:red;" th:text="${message}"></h5>
@@ -58,7 +58,7 @@
                         <td width="50%" th:text="${entity.username}"></td>
                         <td th:text="${entity.rol.descrip}"></td>
                         <td th:text="${entity.inactivo}"></td>
-                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyect_final/usuarios/edit/' + entity.id}">Editar</a></td>
+                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/usuarios/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
                 </table>                

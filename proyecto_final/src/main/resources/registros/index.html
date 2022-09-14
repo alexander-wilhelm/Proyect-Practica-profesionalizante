@@ -16,7 +16,7 @@
 
                 <div class="col-sm-5">
 
-                    <form class="form-horizontal" th:object="${entity}" th:action="@{/roles/search}" method="post">
+                    <form class="form-horizontal" th:object="${entity}" th:action="@{/registros/search}" method="post">
                         <div class="row">
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" th:field="*{descrip}"/>
@@ -25,14 +25,15 @@
                                 <button type="submit" class="btn btn-success">Buscar</button>
                             </div>
                         </div>
+
                     </form>
 
                 </div>
                 <div class="col-sm-1">                    
-                    <a class="btn btn-info" th:href="${'/proyectfinal/roles/refresh/'}">Refrescar</a>
+                    <a class="btn btn-info" th:href="${'/proyectfinal/registros/refresh/'}">Refrescar</a>
                 </div>
                 <div class="col-sm-1">
-                    <a class="btn btn-default" th:href="${'/proyectfinal/roles/create/0'}">Nuevo</a>
+                    <a class="btn btn-default" th:href="${'/proyectfinal/registros/create/0'}">Nuevo</a>
                 </div>
                 <div class="col-sm-11">
                     <h5 style="color:red;" th:text="${message}"></h5>
@@ -47,16 +48,26 @@
                     <tr>
                         <th>Id</th>                
                         <th>Descripción</th>
-                        <th>Nivel</th>                
+                        <th>Usuario</th>
+                        <th>Apellido y Nombre</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Estado</th>
                         <th>Editar</th>
                         <th>Borrar</th>
                     </tr>
                     
                     <tr th:each="entity : ${entities}">
-                        <td th:text="${entity.id}"></td>
-                        <td width="70%" th:text="${entity.descrip}"></td>
-                        <td th:text="${entity.nivel}"></td>
-                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/roles/edit/' + entity.id}">Editar</a></td>
+                        <td width="10%" th:text="${entity.id}"></td>
+                        <td width="10%" th:text="${entity.descrip}"></td>
+                        <td width="10%" th:text="${entity.usuario.username}"></td>
+                        <td width="10%" th:text="${entity.apenom}"></td>
+                        <td width="10%" th:text="${entity.direc}"></td>
+                        <td width="10%" th:text="${entity.tel}"></td>
+                        <td width="10%" th:text="${entity.fechanac}"></td>
+                        <td width="10%" th:text="${entity.estado}"></td>
+                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/registros/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
                 </table>                
@@ -119,11 +130,11 @@
          
            if (confirm('¿ Seguro para Eliminar Registro ?')) {
              var s = location.href;
-             var n = s.search("roles/delete/");
+             var n = s.search("registros/delete/");
              if (n == -1) {
-                 var host = 'roles/delete/' + id;
+                 var host = 'registros/delete/' + id;
              } else {
-                 var host = '../../roles/delete/' + id;
+                 var host = '../../registros/delete/' + id;
              }
              window.location.href = host;
            }

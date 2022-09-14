@@ -16,7 +16,7 @@
 
                 <div class="col-sm-5">
 
-                    <form class="form-horizontal" th:object="${entity}" th:action="@{/roles/search}" method="post">
+                    <form class="form-horizontal" th:object="${entity}" th:action="@{/categorias/search}" method="post">
                         <div class="row">
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" th:field="*{descrip}"/>
@@ -29,10 +29,10 @@
 
                 </div>
                 <div class="col-sm-1">                    
-                    <a class="btn btn-info" th:href="${'/proyectfinal/roles/refresh/'}">Refrescar</a>
+                    <a class="btn btn-info" th:href="${'/proyectfinal/categorias/refresh/'}">Refrescar</a>
                 </div>
                 <div class="col-sm-1">
-                    <a class="btn btn-default" th:href="${'/proyectfinal/roles/create/0'}">Nuevo</a>
+                    <a class="btn btn-default" th:href="${'/proyectfinal/categorias/create/0'}">Nuevo</a>
                 </div>
                 <div class="col-sm-11">
                     <h5 style="color:red;" th:text="${message}"></h5>
@@ -47,7 +47,8 @@
                     <tr>
                         <th>Id</th>                
                         <th>Descripción</th>
-                        <th>Nivel</th>                
+                        <th>Prioridad</th>
+                        <th>Baja</th>
                         <th>Editar</th>
                         <th>Borrar</th>
                     </tr>
@@ -55,8 +56,9 @@
                     <tr th:each="entity : ${entities}">
                         <td th:text="${entity.id}"></td>
                         <td width="70%" th:text="${entity.descrip}"></td>
-                        <td th:text="${entity.nivel}"></td>
-                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/roles/edit/' + entity.id}">Editar</a></td>
+                        <td th:text="${entity.prioridad}"></td>
+                        <td th:text="${entity.baja}"></td>
+                        <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/categorias/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
                 </table>                
@@ -119,11 +121,11 @@
          
            if (confirm('¿ Seguro para Eliminar Registro ?')) {
              var s = location.href;
-             var n = s.search("roles/delete/");
+             var n = s.search("categorias/delete/");
              if (n == -1) {
-                 var host = 'roles/delete/' + id;
+                 var host = 'categorias/delete/' + id;
              } else {
-                 var host = '../../roles/delete/' + id;
+                 var host = '../../categorias/delete/' + id;
              }
              window.location.href = host;
            }
