@@ -51,7 +51,7 @@ public class ContenidosController {
         return "redirect:/contenidos";
     }
 
-    @RequestMapping(value = "registros/search", method = RequestMethod.POST)
+    @RequestMapping(value = "contenidos/search", method = RequestMethod.POST)
     public String search(Model model, Contenidos entity) {
         if (entity.getDescrip().equals("")) {
             return refresh();
@@ -93,7 +93,7 @@ public class ContenidosController {
         if (entity.getTitulo().equals("")) errores += "Ingrese el titulo";
         if (entity.getTag().equals("")) errores += "Ingrese el tag";
         if (entity.getFechaalta() == null) errores += "Ingrese fecha de alta";
-        if (entity.getFechacracion() == null) errores += "Ingrese fecha de creacion";
+        if (entity.getFechacreacion() == null) errores += "Ingrese fecha de creacion";
         if (entity.getHabilitado().equals("")) errores += "Ingrese el estado";
         if (entity.getTipo().equals("")) errores += "Ingrese tipo";
         if (entity.getBaja().equals("")) errores += "Ingrese baja";

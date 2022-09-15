@@ -22,7 +22,7 @@ public class Contenidos implements Serializable {
     private String descrip;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date fechacracion;
+    private Date fechacreacion;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaalta;
@@ -60,12 +60,12 @@ public class Contenidos implements Serializable {
         this.descrip = descrip;
     }
 
-    public Date getFechacracion() {
-        return fechacracion;
+    public Date getFechacreacion() {
+        return fechacreacion;
     }
 
-    public void setFechacracion(Date fechacracion) {
-        this.fechacracion = fechacracion;
+    public void setFechacreacion(Date fechacreacion) {
+        this.fechacreacion = getFechacreacion();
     }
 
     public Date getFechaalta() {
