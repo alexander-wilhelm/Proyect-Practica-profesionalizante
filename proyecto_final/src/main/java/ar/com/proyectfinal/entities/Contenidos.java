@@ -131,4 +131,12 @@ public class Contenidos implements Serializable {
     public void setLinks(Links links) {
         this.links = links;
     }
+
+    public Categorias getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
+    }
 }

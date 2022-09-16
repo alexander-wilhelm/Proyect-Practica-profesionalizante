@@ -18,7 +18,7 @@ public class Categorias implements Serializable {
     private Integer id;
     private String descrip;
     private Integer prioridad;
-    private boolean baja;
+    private Boolean baja;
 
     public Integer getId() {
         return id;
@@ -44,11 +44,11 @@ public class Categorias implements Serializable {
         this.prioridad = prioridad;
     }
 
-    public boolean isBaja() {
+    public Boolean getBaja() {
         return baja;
     }
 
-    public void setBaja(boolean baja) {
+    public void setBaja(Boolean baja) {
         this.baja = baja;
     }
 }
