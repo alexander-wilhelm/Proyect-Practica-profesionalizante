@@ -55,7 +55,7 @@
                     <tr th:each="entity : ${entities}">
                         <td th:text="${entity.id}"></td>
                         <td width="70%" th:text="${entity.descrip}"></td>
-                        <td th:text="${entity.links}"></td>
+                        <td th:text="${entity.link}"></td>
                         <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/links/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    

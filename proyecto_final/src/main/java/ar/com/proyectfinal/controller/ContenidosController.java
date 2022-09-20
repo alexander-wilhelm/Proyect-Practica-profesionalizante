@@ -93,7 +93,6 @@ public class ContenidosController {
         if (entity.getTitulo().equals("")) errores += "Ingrese el titulo";
         if (entity.getTag().equals("")) errores += "Ingrese el tag";
         if (entity.getFechaalta() == null) errores += "Ingrese fecha de alta";
-        if (entity.getFechacreacion() == null) errores += "Ingrese fecha de creacion";
         if (entity.getHabilitado().equals("")) errores += "Ingrese el estado";
         if (entity.getTipo().equals("")) errores += "Ingrese tipo";
         if (entity.getBaja().equals("")) errores += "Ingrese baja";
