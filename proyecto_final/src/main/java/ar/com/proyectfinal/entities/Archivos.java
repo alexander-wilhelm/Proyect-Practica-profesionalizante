@@ -6,24 +6,27 @@
 package ar.com.proyectfinal.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Entity
 @Table(name="archivos")
-public class Archivos implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Archivos {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+
+    private String id;
     private String descrip;
     private String formato;
 
-    public Integer getId() {
+    @JoinColumn(name= "fk_contenidos", referencedColumnName = "id",nullable=false)
+    @ManyToOne
+    private Contenidos contenidos;
+
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -41,5 +44,13 @@ public class Archivos implements Serializable {
 
     public void setFormato(String formato) {
         this.formato = formato;
+    }
+
+    public Contenidos getContenidos() {
+        return contenidos;
+    }
+
+    public void setContenidos(Contenidos contenidos) {
+        this.contenidos = contenidos;
     }
 }

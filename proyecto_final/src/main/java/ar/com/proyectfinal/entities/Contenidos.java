@@ -8,7 +8,9 @@ package ar.com.proyectfinal.entities;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 
@@ -36,13 +38,24 @@ public class Contenidos implements Serializable {
     @ManyToOne
     private Usuarios usuarios;
 
-    @JoinColumn(name= "fk_links", referencedColumnName = "id",nullable=false)
-    @ManyToOne
-    private Links links;
-
     @JoinColumn(name= "fk_categorias", referencedColumnName = "id",nullable=false)
     @ManyToOne
     private Categorias categorias;
+
+    @OneToMany (mappedBy = "contenidos", cascade = CascadeType.ALL, orphanRemoval=true)
+    private List<Links> links;
+
+    @OneToMany (mappedBy = "contenidos", cascade = CascadeType.ALL, orphanRemoval=true)
+    private List<Archivos> archivos;
+
+    /* Constructor para cuando hay colecciones
+
+     */
+    public Contenidos() {
+        links = new ArrayList<Links>();
+        archivos = new ArrayList<Archivos>();
+    }
+
 
     public Integer getId() {
         return id;
@@ -65,7 +78,7 @@ public class Contenidos implements Serializable {
     }
 
     public void setFechacreacion(Date fechacreacion) {
-        this.fechacreacion = getFechacreacion();
+        this.fechacreacion = fechacreacion;
     }
 
     public Date getFechaalta() {
@@ -122,14 +135,6 @@ public class Contenidos implements Serializable {
 
     public void setUsuarios(Usuarios usuarios) {
         this.usuarios = usuarios;
-    }
-
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
     }
 
     public Categorias getCategorias() {

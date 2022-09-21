@@ -6,25 +6,29 @@
 package ar.com.proyectfinal.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 
 
 @Entity
 @Table(name="links")
-public class Links implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Links {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+
+    private String id;
     private String descrip;
     private String link;
 
+    @JoinColumn(name= "fk_contenidos", referencedColumnName = "id",nullable=false)
+    @ManyToOne
+    private Contenidos contenidos;
 
-    public Integer getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -42,5 +46,13 @@ public class Links implements Serializable {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Contenidos getContenidos() {
+        return contenidos;
+    }
+
+    public void setContenidos(Contenidos contenidos) {
+        this.contenidos = contenidos;
     }
 }

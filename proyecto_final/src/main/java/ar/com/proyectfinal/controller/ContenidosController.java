@@ -6,7 +6,6 @@ import ar.com.proyectfinal.entities.Links;
 import ar.com.proyectfinal.entities.Usuarios;
 import ar.com.proyectfinal.services.ICategoriasService;
 import ar.com.proyectfinal.services.IContenidosService;
-import ar.com.proyectfinal.services.ILinksService;
 import ar.com.proyectfinal.services.IUsuariosService;
 import ar.com.proyectfinal.utiles.PageWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +32,6 @@ public class ContenidosController {
     @Autowired
     ICategoriasService categoriasService;
 
-    @Autowired
-    ILinksService linksService;
 
     @RequestMapping(value = "/contenidos", method = RequestMethod.GET)
     public String list(Model model, Pageable pageable) {        
@@ -69,8 +66,6 @@ public class ContenidosController {
         model.addAttribute("usuarios", list);
         List<Categorias> listcat = categoriasService.getAll();
         model.addAttribute("categorias", listcat);
-        List<Links> listlink = linksService.getAll();
-        model.addAttribute("links", listlink);
         return "../contenidos/edit";
     }
 
@@ -81,8 +76,6 @@ public class ContenidosController {
         model.addAttribute("usuarios", list);
         List<Categorias> listcat = categoriasService.getAll();
         model.addAttribute("categorias", listcat);
-        List<Links> listlink = linksService.getAll();
-        model.addAttribute("links", listlink);
         return "../contenidos/edit";
     }
 
@@ -105,8 +98,6 @@ public class ContenidosController {
             model.addAttribute("usuarios", list);
             List<Categorias> listcat = categoriasService.getAll();
             model.addAttribute("categorias", listcat);
-            List<Links> listlink = linksService.getAll();
-            model.addAttribute("links", listlink);
             return "../contenidos/edit";
         }
         entityService.save(entity);
