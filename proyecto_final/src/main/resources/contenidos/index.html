@@ -48,15 +48,9 @@
                         <th>Id</th>
                         <th>Descripción</th>
                         <th>Fecha De Creación</th>
-                        <th>Fecha Y Hora De Alta</th>
                         <th>Título</th>
-                        <th>Tag</th>
-                        <th>Tipo</th>
                         <th>Habilitado</th>
-                        <th>Usuarios</th>
                         <th>Categorias</th>
-                        <th>Baja</th>
-                        <th>Links</th>
                         <th>Editar</th>
                         <th>Borrar</th>
                     </tr>
@@ -65,15 +59,9 @@
                         <td th:text="${entity.id}"></td>
                         <td width="70%" th:text="${entity.descrip}"></td>
                         <td th:text="${entity.fechacreacion}"></td>
-                        <td th:text="${entity.fechaalta}"></td>
                         <td th:text="${entity.titulo}"></td>
-                        <td th:text="${entity.tag}"></td>
-                        <td th:text="${entity.tipo}"></td>
                         <td th:text="${entity.habilitado}"></td>
-                        <td th:text="${entity.usuarios.username}"></td>
                         <td th:text="${entity.categorias.descrip}"></td>
-                        <td th:text="${entity.baja}"></td>
-                        <td th:text="${entity.links.descrip}"></td>
                         <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/contenidos/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
