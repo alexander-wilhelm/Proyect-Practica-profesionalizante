@@ -51,6 +51,9 @@
                         <th>Título</th>
                         <th>Habilitado</th>
                         <th>Categorias</th>
+
+
+
                         <th>Editar</th>
                         <th>Borrar</th>
                     </tr>
@@ -62,8 +65,13 @@
                         <td th:text="${entity.titulo}"></td>
                         <td th:text="${entity.habilitado}"></td>
                         <td th:text="${entity.categorias.descrip}"></td>
+
+
+
                         <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/contenidos/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
+                        <td width="5%"><a class="btn btn-info" th:href="${'/proyectfinal/contenidos/addfile/' + entity.id}">Archivos</a></td>
+                        <td width="5%"><a class="btn btn-success" th:href="${'/proyectfinal/contenidos/addlink/' + entity.id}">Links</a></td>
                     </tr>                    
                 </table>                
 
