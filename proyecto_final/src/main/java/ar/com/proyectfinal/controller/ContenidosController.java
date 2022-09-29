@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class ContenidosController {
@@ -31,6 +32,7 @@ public class ContenidosController {
 
     @Autowired
     ICategoriasService categoriasService;
+
 
 
     @RequestMapping(value = "/contenidos", method = RequestMethod.GET)
@@ -120,5 +122,29 @@ public class ContenidosController {
             return "../contenidos/index";
         }
     }
-    
+    @RequestMapping("contenidos/addfile/{id}")
+    public String addfile(@PathVariable Integer id, Model model) {
+        model.addAttribute("entity", entityService.get(id));
+        return "../contenidos/files";
+    }
+
+    @RequestMapping("contenidos/addlink/{id}")
+    public String addlink(@PathVariable Integer id, Model model) {
+        Contenidos contenido = entityService.get(id);
+        Links entity = new Links();
+        entity.setContenidos(contenido);
+        model.addAttribute("entity", entity);
+        return "../contenidos/links";
+    }
+
+    @RequestMapping(value = "links", method = RequestMethod.POST)
+    public String savelink(Model model, @Validated Links entity) {
+        Contenidos contenido = entityService.get(entity.getContenidos().getId());
+        entity.setId(UUID.randomUUID().toString());
+        entity.setContenidos(contenido);
+        contenido.getLinks().add(entity);
+        entityService.save(contenido);
+        return "redirect:/contenidos";
+    }
+
 }

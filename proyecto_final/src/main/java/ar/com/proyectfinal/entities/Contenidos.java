@@ -52,8 +52,8 @@ public class Contenidos implements Serializable {
 
      */
     public Contenidos() {
-        links = new ArrayList<Links>();
-        archivos = new ArrayList<Archivos>();
+        setLinks(new ArrayList<Links>());
+        setArchivos(new ArrayList<Archivos>());
     }
 
 
@@ -143,5 +143,21 @@ public class Contenidos implements Serializable {
 
     public void setCategorias(Categorias categorias) {
         this.categorias = categorias;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Links> links) {
+        this.links = links;
+    }
+
+    public List<Archivos> getArchivos() {
+        return archivos;
+    }
+
+    public void setArchivos(List<Archivos> archivos) {
+        this.archivos = archivos;
     }
 }
