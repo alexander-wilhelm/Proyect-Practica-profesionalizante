@@ -54,10 +54,10 @@
                     </tr>
                     
                     <tr th:each="entity : ${entities}">
-                        <td th:text="${entity.id}"></td>
-                        <td width="70%" th:text="${entity.descrip}"></td>
-                        <td th:text="${entity.prioridad}"></td>
-                        <td th:text="${entity.baja}"></td>
+                        <td width="10%" th:text="${entity.id}"></td>
+                        <td width="10%" th:text="${entity.descrip}"></td>
+                        <td width="10%" th:text="${entity.prioridad}"></td>
+                        <td width="10%" th:text="${entity.baja}"></td>
                         <td width="5%"><a class="btn btn-warning" th:href="${'/proyectfinal/categorias/edit/' + entity.id}">Editar</a></td>
                         <td width="5%"><a class="btn btn-danger" th:onclick="'javascript:jsdelete('+ *{entity.id} +')'">Borrar</a></td>
                     </tr>                    
