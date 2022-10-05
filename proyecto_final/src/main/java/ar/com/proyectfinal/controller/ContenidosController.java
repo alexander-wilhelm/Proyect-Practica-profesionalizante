@@ -11,13 +11,12 @@ import ar.com.proyectfinal.utiles.PageWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -132,7 +131,7 @@ public class ContenidosController {
     @RequestMapping("contenidos/addfile/{id}")
     public String addfile(@PathVariable Integer id, Model model) {
         model.addAttribute("entity", entityService.get(id));
-        return "../contenidos/files";
+        return "../contenidos/upload";
     }
 
     @RequestMapping("contenidos/addlink/{id}")
@@ -154,10 +153,13 @@ public class ContenidosController {
         return "redirect:/contenidos";
     }
 
-    @RequestMapping(value = "archivos", method = RequestMethod.POST)
+
+
+
+    @PostMapping("contenidos/addlink/{id}/upload/") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
-        String UPLOADED_FOLDER = "/temp";
+        String UPLOADED_FOLDER = ".//src//main/resources//temp//";
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
             return "redirect:uploadStatus";
@@ -177,16 +179,17 @@ public class ContenidosController {
             e.printStackTrace();
         }
 
-        return "../contenidos/index";
+        return "redirect:/uploadStatus";
     }
 
-    @RequestMapping("/u")
+    @GetMapping("/uploadStatus")
     public String uploadStatus() {
         return "uploadStatus";
     }
 
 }
-;
+
+
 
 
 
