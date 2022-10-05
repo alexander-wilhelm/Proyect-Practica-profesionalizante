@@ -156,10 +156,14 @@ public class ContenidosController {
 
 
 
-    @PostMapping("contenidos/addlink/{id}/upload/") // //new annotation since 4.3
+     String UPLOADED_FOLDER = "uploads//";
+
+
+
+    @PostMapping("/upload") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
-        String UPLOADED_FOLDER = ".//src//main/resources//temp//";
+
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
             return "redirect:uploadStatus";
@@ -179,12 +183,12 @@ public class ContenidosController {
             e.printStackTrace();
         }
 
-        return "redirect:/uploadStatus";
+        return "redirect:/contenidos";
     }
 
     @GetMapping("/uploadStatus")
     public String uploadStatus() {
-        return "uploadStatus";
+        return "/contenidos";
     }
 
 }

@@ -10,15 +10,19 @@
     <!--/*/ <th:block th:include="header :: header"></th:block> /*/-->
 
 
-    <h1>Spring Boot file upload example</h1>
+    <h1>Cargar archivos</h1>
 
-    <form method="POST" action="@{/upload}" enctype="multipart/form-data">
+    <form method="POST"   th:action="@{/upload}" enctype="multipart/form-data">
         <input type="file" name="file" /><br/><br/>
         <input type="submit" value="Submit" />
     </form>
     <!-- Fin Zona de Ajuste -->
 
 </div>
+
+
+
+
 
 </body>
 </html>
