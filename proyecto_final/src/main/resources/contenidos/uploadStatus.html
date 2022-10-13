@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--/*/ <th:block th:include="top :: top"></th:block> /*/-->
+
+<body>
+
+<div class="container">
+
+    <!--/*/ <th:block th:include="header :: header"></th:block> /*/-->
+
+
+    <h1>Spring Boot - Upload Status</h1>
+
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+
+    <!-- Fin Zona de Ajuste -->
+
+</div>
+
+</body>
+</html>
+

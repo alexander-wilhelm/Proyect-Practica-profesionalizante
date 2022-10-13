@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--/*/ <th:block th:include="top :: top"></th:block> /*/-->
+
+<body>
+
+<div class="container">
+
+    <!--/*/ <th:block th:include="header :: header"></th:block> /*/-->
+
+    <h2>Contenidos</h2>
+
+        <form class="form-horizontal" th:object="${entity}" th:action="@{/contenidos}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Descripción</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{descrip}"/>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Fecha De Creación</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" th:field="*{fechacreacion}"/>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 me-0">
+                <label class="col-sm-4 control-label">Fecha De Alta</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" th:field="*{fechaalta}"/>
+                </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Título</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{titulo}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Tag</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{tag}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Tipo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{tipo}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label align="right" >Usuarios</label>
+                </div>
+                <div class="col-sm-10">
+                    <select  class="form-control" th:field="${entity.usuarios}">
+                        <option th:each="usuarios : ${usuarios}"
+                                th:value="${usuarios.id}"
+                                th:selected="${usuarios.id}"
+                                th:text="${usuarios.username}"/>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">
+                    <label align="right" >Categorias</label>
+                </div>
+                <div class="col-sm-10">
+                    <select  class="form-control" th:field="${entity.categorias}">
+                        <option th:each="categorias : ${categorias}"
+                                th:value="${categorias.id}"
+                                th:selected="${categorias.id}"
+                                th:text="${categorias.descrip}"/>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input type="checkbox" th:field="*{habilitado}"/>
+                    Habilitado
+                </div>
+            </div>
+                </div>
+
+                <div class="col-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <input type="checkbox" th:field="*{baja}"/>
+                    Baja
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a class="btn btn-default" th:href="${'/proyectfinal/contenidos'}">Cancelar</a>
+            </div>
+            <h5 style="color:red;" th:text="${message}"></h5>
+        </form>
+    </div>
+    <!-- Fin Zona de Ajuste -->
+
+</div>
+
+</body>
+</html>
+
