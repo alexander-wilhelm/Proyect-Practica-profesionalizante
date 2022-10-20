@@ -128,16 +128,6 @@ public class ContenidosController {
         }
     }
 
-    @RequestMapping("contenidos/addfile/{id}")
-    public String addfile(@PathVariable Integer id, Model model) {
-        Contenidos contenido = entityService.get(id);
-        model.addAttribute("cont", contenido);
-        Archivos entity = new Archivos();
-
-        model.addAttribute("entity", entityService.get(id));
-        return "../contenidos/upload";
-    }
-
     @RequestMapping("contenidos/addlink/{id}")
     public String addlink(@PathVariable Integer id, Model model) {
         Contenidos contenido = entityService.get(id);
@@ -188,6 +178,17 @@ public class ContenidosController {
         return "redirect:/contenidos/addlink/" + (entity.getContenidos().getId());
     }
 
+
+    @RequestMapping("contenidos/addfile/{id}")
+    public String addfile(@PathVariable Integer id, Model model) {
+        Contenidos contenido = entityService.get(id);
+        model.addAttribute("cont", contenido);
+        Archivos entity = new Archivos();
+
+        //model.addAttribute("archivos", entityService.get(id).getArchivos());
+        return "../contenidos/upload";
+    }
+
      String UPLOADED_FOLDER = "uploads//";
 
     @PostMapping("/upload") // //new annotation since 4.3
@@ -210,6 +211,7 @@ public class ContenidosController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
 
+
             Contenidos c = entityService.get(contenido.getId());
             Archivos archivo = new Archivos();
             archivo.setId(UUID.randomUUID().toString().replace("-","_"));
@@ -217,6 +219,7 @@ public class ContenidosController {
             archivo.setContenidos(c);
             c.getArchivos().add(archivo);
             entityService.save(c);
+
 
         } catch (IOException e) {
             e.printStackTrace();
