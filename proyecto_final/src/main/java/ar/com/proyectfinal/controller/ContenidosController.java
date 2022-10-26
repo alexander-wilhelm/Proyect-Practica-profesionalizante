@@ -151,7 +151,6 @@ public class ContenidosController {
     }
 
     @RequestMapping("contenidos/deletelink/{id}/{contenidoid}")
-
     public String deletelink(@PathVariable String id, @PathVariable Integer contenidoid, Model model) {
 
         Contenidos contenido = entityService.get(contenidoid);
@@ -231,6 +230,14 @@ public class ContenidosController {
     @GetMapping("/uploadStatus")
     public String uploadStatus() {
         return "/contenidos";
+    }
+
+    @GetMapping("/getFiles")
+    public String GetFiles(Model model, @SessionAttribute("cont") Contenidos contenido) {
+        Contenidos c = entityService.get(contenido.getId());
+
+        model.addAttribute("entities", c.getArchivos());
+        return "../contenidos/filesList :: filesList";
     }
 
 }

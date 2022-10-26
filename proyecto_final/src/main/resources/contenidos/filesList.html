@@ -1,0 +1,21 @@
+<html>
+    
+    <div th:fragment="filesList">
+
+        <br/>
+
+        <table class="table" width="100%">
+            <tr>
+                <th>Archivo</th>
+                <th>Borrar</th>
+            </tr>
+
+            <tr th:each="entity : ${entities}">
+                <td th:text="${entity.descrip}"></td>
+                <td width="5%"><a class="btn btn-danger" th:href="${'/proyectfinal/contenidos/deleteFile/'} + ${entity.id}" >X</a></td>
+            </tr>                    
+        </table>                
+
+    </div>            
+
+</html>

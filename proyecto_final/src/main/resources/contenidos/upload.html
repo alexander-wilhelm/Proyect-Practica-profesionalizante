@@ -12,34 +12,38 @@
 
     <h1>Cargar archivos</h1>
 
-    <form method="POST"   th:action="@{/upload}" enctype="multipart/form-data">
-        <input type="file" name="file" /><br/><br/>
-        <input type="submit" value="Submit" />
+    <form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
+        <input type="file" name="file"/><br/><br/>
+        <input type="submit" value="Submit"/>
 
     </form>
 
 
     <!-- Fin Zona de Ajuste -->
 
-    <div>
-        <table width="100%">
+    <!-- Lista de Archivos - Partial View -->
+    <div id="listFiles"></div>
 
-            <tr th:each="archivo, itemStat : *{archivos}">
-
-                <input type="hidden" th:field="*{archivos[__${itemStat.index}__].id}" />
-                <td th:text="*{archivos[__${itemStat.index}__].id}"></td>
-                <td th:text="*{archivos[__${itemStat.index}__].descrip}"></td>
-               <!-- <td width="5%"><a class="btn btn-danger" th:href="${'/proyectfinal/contenidos/deletelink/'} + *{links[__${itemStat.index}__].id} + '/' + *{links[__${itemStat.index}__].contenidoid}" >X</a></td>
-                -->
-            </tr>
-        </table>
-
-
-
-    </div>
 
 </div>
 
 </body>
 </html>
+
+<script th:inline="javascript">
+
+      /*<![CDATA[*/
+
+        function loadArchivos() {
+        var url = '/proyectfinal/getFiles';
+        $.get(url, function (result) {
+            $("#listFiles").html(result);
+        });
+    }
+
+    loadArchivos();
+
+       /*]]>*/
+
+</script>
 
