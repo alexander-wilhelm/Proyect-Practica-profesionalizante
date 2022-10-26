@@ -39,9 +39,8 @@ public class ContenidosController {
     ICategoriasService categoriasService;
 
 
-
     @RequestMapping(value = "/contenidos", method = RequestMethod.GET)
-    public String list(Model model, Pageable pageable) {        
+    public String list(Model model, Pageable pageable) {
         Page<Contenidos> centroPage = entityService.findAll(pageable);
         PageWrapper<Contenidos> page = new PageWrapper<Contenidos>(centroPage, "/contenidos");
         model.addAttribute("entities", page.getContent());
@@ -134,7 +133,7 @@ public class ContenidosController {
         Links entity = new Links();
 
         List<LinksView> lista = new ArrayList<>();
-        for(Links l : contenido.getLinks()){
+        for (Links l : contenido.getLinks()) {
             LinksView c = new LinksView();
             c.setId(l.getId());
             c.setDescrip(l.getDescrip());
@@ -155,7 +154,7 @@ public class ContenidosController {
 
         Contenidos contenido = entityService.get(contenidoid);
 
-        for(Links l : contenido.getLinks()){
+        for (Links l : contenido.getLinks()) {
             if (l.getId().equals(id)) {
                 contenido.getLinks().remove(l);
                 break;
@@ -170,7 +169,7 @@ public class ContenidosController {
     @RequestMapping(value = "links", method = RequestMethod.POST)
     public String savelink(Model model, @Validated Links entity) {
         Contenidos contenido = entityService.get(entity.getContenidos().getId());
-        entity.setId(UUID.randomUUID().toString().replace("-","_"));
+        entity.setId(UUID.randomUUID().toString().replace("-", "_"));
         entity.setContenidos(contenido);
         contenido.getLinks().add(entity);
         entityService.save(contenido);
@@ -188,7 +187,7 @@ public class ContenidosController {
         return "../contenidos/upload";
     }
 
-     String UPLOADED_FOLDER = "uploads//";
+    String UPLOADED_FOLDER = "uploads//";
 
     @PostMapping("/upload") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
@@ -213,7 +212,7 @@ public class ContenidosController {
 
             Contenidos c = entityService.get(contenido.getId());
             Archivos archivo = new Archivos();
-            archivo.setId(UUID.randomUUID().toString().replace("-","_"));
+            archivo.setId(UUID.randomUUID().toString().replace("-", "_"));
             archivo.setDescrip(path.toString());
             archivo.setContenidos(c);
             c.getArchivos().add(archivo);
@@ -240,7 +239,28 @@ public class ContenidosController {
         return "../contenidos/filesList :: filesList";
     }
 
+
+    @RequestMapping("contenidos/deleteFile/{entity.id}")
+    public String deleteFile(@PathVariable String id, @PathVariable Integer contenidoid, Model model) {
+
+        Contenidos contenido = entityService.get(contenidoid);
+
+        for (Archivos l : contenido.getArchivos()) {
+            if (l.getId().equals(id)) {
+                contenido.getArchivos().remove(l);
+                break;
+            }
+        }
+        entityService.save(contenido);
+
+        return "redirect:/contenidos" + contenidoid;
+    }
+
 }
+
+
+
+
 
 
 
