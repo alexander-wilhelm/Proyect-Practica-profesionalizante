@@ -12,7 +12,7 @@
 
             <tr th:each="entity : ${entities}">
                 <td th:text="${entity.descrip}"></td>
-                <td width="5%"><a class="btn btn-danger" th:href="${'/proyectfinal/contenidos/deleteFile/'} + ${entity.id}" >X</a></td>
+                <td width="5%"><a class="btn btn-danger" th:href="${'/proyectfinal/contenidos/deleteFile/'} + ${entity.id} + '/' + ${entity.contenidos.id}" >X</a></td>
             </tr>                    
         </table>                
 

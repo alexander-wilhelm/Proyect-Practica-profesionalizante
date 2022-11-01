@@ -140,7 +140,7 @@ public class ContenidosController {
             c.setLink(l.getLink());
             c.setContenidoid(contenido.getId());
             lista.add(c);
-            System.out.println(l.getId());
+            //System.out.println(l.getId());
         }
         entity.setLinks(lista);
 
@@ -223,7 +223,7 @@ public class ContenidosController {
             e.printStackTrace();
         }
 
-        return "redirect:/contenidos";
+        return "redirect:/contenidos/addfile/" + contenido.getId();
     }
 
     @GetMapping("/uploadStatus")
@@ -240,7 +240,7 @@ public class ContenidosController {
     }
 
 
-    @RequestMapping("contenidos/deleteFile/{entity.id}")
+    @RequestMapping("contenidos/deleteFile/{id}/{contenidoid}")
     public String deleteFile(@PathVariable String id, @PathVariable Integer contenidoid, Model model) {
 
         Contenidos contenido = entityService.get(contenidoid);
@@ -253,7 +253,8 @@ public class ContenidosController {
         }
         entityService.save(contenido);
 
-        return "redirect:/contenidos" + contenidoid;
+        return "../contenidos/upload" ;
+
     }
 
 }

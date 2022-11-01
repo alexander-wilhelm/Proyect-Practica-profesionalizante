@@ -29,14 +29,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		/*aca la decimos que todo lo que ingrese por esa ruta, esta permitido
 		sin pedir permiso
-		 */
+
 		http
 				.httpBasic(withDefaults())
 				.authorizeRequests()
 				.antMatchers("/**").permitAll();
 
+*/
 		//DESCOMENTAR PARA TENER EL LOGIN ANDANDO
-		/* http
+		http
 			.csrf().disable()
 			.authorizeRequests()
 				.antMatchers("/").authenticated()
@@ -52,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 				.httpBasic(); // API Rest
-*/
+
 	}
 
 	@Override
